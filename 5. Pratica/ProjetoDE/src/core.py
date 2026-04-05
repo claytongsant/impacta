@@ -25,7 +25,6 @@ class Config(BaseModel):
     data_config: DataSchema
     ml_config: ModelConfig
 
-# --- FUNÇÃO ÚNICA E CORRIGIDA ---
 def create_and_validate_config(cfg_path=CONFIG_FILE_PATH) -> Config:
     if not cfg_path.exists():
         raise OSError(f"Arquivo não encontrado em: {cfg_path}")
@@ -43,7 +42,7 @@ def create_and_validate_config(cfg_path=CONFIG_FILE_PATH) -> Config:
         ml_config=ModelConfig(**data_values),
     )
 
-# ESTA INSTÂNCIA É A QUE OS OUTROS ARQUIVOS IMPORTAM
+# Aqui ESTA INSTÂNCIA É A QUE OS OUTROS ARQUIVOS IMPORTAM
 config = create_and_validate_config()
 
 if __name__ == "__main__":

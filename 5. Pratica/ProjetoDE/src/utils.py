@@ -3,10 +3,8 @@ import requests
 import sqlite3
 import logging
 from pathlib import Path
-
 # aqui está  o caminho da assets 
 ASSETS_PATH = Path(__file__).resolve().parent.parent / "assets"
-
 def ingestion(configs):
     """Busca dados da API"""
     url = "https://randomuser.me/api/?results=10"
@@ -21,7 +19,7 @@ def preparation(df, configs):
     """Trata os dados e salva no SQLite"""
     try:
         logging.info("Iniciando tratamento de dados...")
-        
+ 
         # Aqui está aSeleção e Renomeação 
         df_treated = df[[
             'name.first', 'name.last', 'email', 'location.city', 
